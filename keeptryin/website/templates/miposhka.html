@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miposhka</title>
+    <link
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+     rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+     crossorigin="anonymous"
+   />
+    <link rel="stylesheet" href="{{ url_for('static', filename='modal.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="imges/miposhka.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<script type="text/javascript" src="script.js"></script>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="/home">Home</a>
+              <a class="nav-item nav-link" href="/forum">Forum</a>
+              {% if user.is_authenticated %}
+              
+              <a class="nav-item nav-link" href="/logout">Logout</a>
+              {% else %}
+              <a class="nav-item nav-link" href="/login">Login</a>
+              <a class="nav-item nav-link" href="/sign-up">Sign Up</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    <!--table-->
+   <section id="stat-table">
+    <table class="table">
+        <thead>
+            <th>Matches</th>
+            <th>winrate%</th>
+            <th>kda</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Matches">6,864</td>
+                <td data-label="winrate% ">55.77%</td>
+                <td data-label="kda">3.26</td>
+            </tr>
+            
+        </tbody>
+
+    </table>
+ 
+
+   </section>
+    
+   <section id="popular-product">
+    <!--heading------------->
+    <div class="product-heading">
+        <h3>Метовые персонажи</h3>
+        <span>All</span>
+    </div>
+    <!--product-box-container-->
+    <div class="product-container">
+        <!--box-->
+        
+            <div class="product-box">
+                <img src="{{ url_for('static', filename='imges/undying.jpg')}}" alt="undying">
+                <strong>IO</strong>
+                <span class="quantity">55% winrate</span>
+                <span class="price">65 mathes</span>
+                <!--watch demo-btn-->
+                <a href="#" class="demo-btn" id="myBtn">
+                    <i class="fa-regular fa-eye"></i>Watch game
+
+                </a>
+                <!--heart-btn-->
+                <a href="#" class="like-btn">
+                    <i class="fa-regular fa-bookmark"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img src="{{ url_for('static', filename='imges/rubick.jpg')}}" alt="rubick">
+                <strong>IO</strong>
+                <span class="quantity">58% winrate</span>
+                <span class="price">180 mathes</span>
+                <!--watch demo-btn-->
+                <a href="#" class="demo-btn" id="myBtn2">
+                    <i class="fa-regular fa-eye"></i>Watch game
+
+                </a>
+                <!--heart-btn-->
+                <a href="#" class="like-btn">
+                    <i class="fa-regular fa-bookmark"></i>
+                </a>
+            </div>
+            
+            
+        
+        
+        
+    <!--popular product end -->
+      
+    </div>
+    <!--modal content-->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <section id="category">
+            <!--heading-->
+            <div class="category-heading">
+                <h2>Build</h2>
+                
+            </div>
+           <!--box-container-->
+           <div class="content">
+            
+            <div class="category-container">
+            <!--box-->
+            <br><br>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static', filename='imges/late.png')}}" alt="lateundye" width="200px" height="200px" > 
+                <span>late</span>
+            </a>
+            
+           </div>
+        </div>
+        </section>
+        <section id="category">
+            <!--heading-->
+            <div class="category-heading">
+                <h2>wardmap</h2>
+                
+            </div>
+           <!--box-container-->
+          
+            
+            <div class="category-container">
+            <!--box-->
+            <div class="map">
+                <a href="#" class="category-box">
+                    <img src="{{ url_for('static', filename='imges/scam.svg')}}" alt="lateundye"  > 
+                    
+                </a>
+            </div>
+            
+            
+           </div>
+           
+            
+            
+            
+        </section>
+        </div>
+      
+      </div>
+      
+    <!--modal content-->
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close2">&times;</span>
+          <section id="category">
+            <!--heading-->
+            <div class="category-heading">
+                <h2>Build</h2>
+                
+            </div>
+           <!--box-container-->
+           <div class="content">
+            
+            <div class="category-container">
+            <!--box-->
+            <a href="miposhka.html" class="category-box">
+                <img src="imges/earleundying.png" alt="earleundying" width="250px" height="250px"  >
+                <span>early</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="imges/midundye.png" alt="midundye" width="250px" height="250px" >
+                <span>mid</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="imges/late.png" alt="lateundye" width="250px" height="250px" > 
+                <span>late</span>
+            </a>
+            
+           </div>
+        </div>
+        </section>
+        <section id="category">
+            <!--heading-->
+            <div class="category-heading">
+                <h2>wardmap</h2>
+                
+            </div>
+           <!--box-container-->
+          
+            
+            <div class="category-container">
+            <!--box-->
+            <div class="map">
+                <a href="#" class="category-box">
+                    <img src="imges/miposhka.png" alt="lateundye"  > 
+                    
+                </a>
+            </div>
+            
+            
+           </div>
+           
+            
+            
+            
+        </section>
+        </div>
+      
+      </div>
+
+      
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container" >
+            <!--logo container-->
+            <div class="footer-logo">
+                <a href="#"><span>T</span>opWards</a>
+                <!--social-->
+                
+            </div>
+            <!--links-->
+            
+            
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
